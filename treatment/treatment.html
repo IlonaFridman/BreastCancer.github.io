@@ -15,27 +15,27 @@
   .layout{display:grid;grid-template-columns:1fr 380px;gap:42px;align-items:start}
 
   /* ==== HOME BUTTON – styles ==== */
-.home-link{
-  position:fixed; inset:14px auto auto 14px; z-index:50; display:inline-flex; align-items:center; justify-content:center;
-  width:40px; height:40px; border-radius:10px; background:#fff; border:1px solid var(--line); box-shadow:0 6px 16px rgba(0,0,0,.12); text-decoration:none;
-}
-.home-link:hover{transform:translateY(-1px)}
-.home-link:focus-visible{outline:none;box-shadow:var(--ring)}
-.home-link svg{width:22px;height:22px;fill:#374151}
-/* ==== HOME BUTTON – styles END ==== */
-    h1.slide-title {
-        font-size: clamp(2rem, 2.2vw + 1.2rem, 2.75rem);
-        line-height: 1.2;
-        margin: 0 0 0.5rem;
-        font-weight: 800;
-      }
-      h2.slide-title {
-        font-size: clamp(1.25rem, 1.2vw + 0.9rem, 1.75rem);
-        line-height: 1.3;
-        margin: 0 0 1rem;
-        font-weight: 600;
-      }
+  .home-link{
+    position:fixed; inset:14px auto auto 14px; z-index:50; display:inline-flex; align-items:center; justify-content:center;
+    width:40px; height:40px; border-radius:10px; background:#fff; border:1px solid var(--line); box-shadow:0 6px 16px rgba(0,0,0,.12); text-decoration:none;
+  }
+  .home-link:hover{transform:translateY(-1px)}
+  .home-link:focus-visible{outline:none;box-shadow:var(--ring)}
+  .home-link svg{width:22px;height:22px;fill:#374151}
+  /* ==== HOME BUTTON – styles END ==== */
 
+  h1.slide-title {
+    font-size: clamp(2rem, 2.2vw + 1.2rem, 2.75rem);
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+    font-weight: 800;
+  }
+  h2.slide-title {
+    font-size: clamp(1.25rem, 1.2vw + 0.9rem, 1.75rem);
+    line-height: 1.3;
+    margin: 0 0 1rem;
+    font-weight: 600;
+  }
 
   /* Toolbar */
   .toolbar{display:flex;gap:8px;align-items:center;margin:0 0 12px 0}
@@ -64,21 +64,16 @@
     text-align:left;position:relative;transition:background-color .15s,transform .06s;
     font-size:22px;
   }
- .acc-header::before{
-  content:"▸";                 /* right-pointing caret */
-  position:absolute;
-  left:14px; top:50%;
-  transform:translateY(-50%);
-  font-size:35px;
-  color:#4b5563;               /* dark gray, darker than panel */
-  opacity:.95;
-}
-
-/* Open: arrow faces down */
-.acc-header[aria-expanded="true"]::before{
-  content:"▾";                 /* down-pointing caret */
-}
-  .acc-header[aria-expanded="true"]::before{ transform:translateY(-50%) rotate(0deg) }
+  .acc-header::before{
+    content:"▸";
+    position:absolute;
+    left:14px; top:50%;
+    transform:translateY(-50%);
+    font-size:35px;
+    color:#4b5563;
+    opacity:.95;
+  }
+  .acc-header[aria-expanded="true"]::before{ content:"▾"; }
   .acc-header:hover{background:var(--panel-hover);transform:translateY(-1px)}
   .acc-header:focus-visible{outline:none;box-shadow:var(--ring)}
   .acc-header .cat-icon{width:26px;height:26px;flex:0 0 26px;}
@@ -92,8 +87,7 @@
 
   /* RIGHT (actions) */
   .side{display:flex;flex-direction:column;gap:14px}
-  
-  /* Main blue action buttons */
+
   .cta{
     display:inline-block;text-decoration:none;color:#fff;font-weight:700;font-size:18px;
     padding:14px 18px;border-radius:10px;min-width:280px;text-align:center;
@@ -106,7 +100,6 @@
   .cta:focus-visible{outline:none;box-shadow:var(--ring)}
   .cta[disabled]{opacity:.55;cursor:not-allowed;filter:grayscale(0.35)}
 
-  /* Style for tool buttons in the side panel */
   .side .tool-btn {
     width: 100%;
     font-size: 18px;
@@ -119,15 +112,13 @@
 
   .hint{font-size:14px;color:#374151}
 
-  /* Hidden handout container for PDF/print/email rendering */
-  .print-stage{position:fixed;left:-10000px;top:-10000px;width:794px; /* ~A4 width at 96dpi */ padding:24px;background:#fff}
+  .print-stage{position:fixed;left:-10000px;top:-10000px;width:794px;padding:24px;background:#fff}
 
-  /* Handout outline styling (matches your screenshot) */
   .handout{
     font-family: Arial, Helvetica, sans-serif; color:#0f172a; line-height:1.55; font-size:18px;
   }
   .handout .frame{
-    border:6px solid #6aa1cc; border-radius:36px; padding:16px; 
+    border:6px solid #6aa1cc; border-radius:36px; padding:16px;
   }
   .handout .chip{
     display:block;text-align:center;font-weight:700;font-size:22px;color:#1b4e73;
@@ -136,69 +127,66 @@
   .handout .panel{
     border:6px solid #6aa1cc;border-radius:28px;padding:16px;min-height:160px;
   }
-  .handout h4{ margin:0 0 8px; font-size:18px; } /* for grouped category headings */
+  .handout h4{ margin:0 0 8px; font-size:18px; }
   .handout ul{margin:0;padding-left:22px}
   .handout li{margin:8px 0}
+
   @media (max-width:760px){
     .layout{grid-template-columns:1fr;gap:28px}
     .side .cta{width:100%;min-width:unset}
   }
 </style>
 </head>
+
 <body>
-   <!-- ==== HOME BUTTON – element ==== -->
+  <!-- HOME BUTTON (relative) -->
   <a class="home-link" href="../home.html" aria-label="Go to Home">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1 2.5 10.1a1 1 0 0 0-.4.8v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-5h4v5a1 1 0 0 0 1 1h5.9a1 1 0 0 0 1-1v-9a1 1 0 0 0-.4-.8L12 3.1z"/></svg>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3.1 2.5 10.1a1 1 0 0 0-.4.8v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-5h4v5a1 1 0 0 0 1 1h5.9a1 1 0 0 0 1-1v-9a1 1 0 0 0-.4-.8L12 3.1z"/>
+    </svg>
   </a>
-  
-<a id="page-top"></a>
 
-<main class="container" aria-label="Slide-like layout">
-  <section class="layout">
-    <div>
+  <a id="page-top"></a>
 
-       <!-- ADD: slide heading -->
-            <!-- ADD: slide heading -->
-      <h1 class="slide-title">For people who are undergoing treatment</h1>
-      <h2 class="slide-title">Here you will find questions to ask your doctors and eResources to learn some basic information.</h2>
-       <ul>
-    <li><strong>Step 1:</strong> Select one or more sections to see the questions.</li>
-    <li><strong>Step 2: Select 3-5 questions</strong> you want to include in your handout.</li>
-    <li><strong>Step 3: </strong> Download or print the handout to bring to your care team.</li>
-    <li><strong>Step 4:</strong> Select <strong>‘Online Resources'</strong> to find more information.</li>
-  </ul>
-      <div class="toolbar" role="group" aria-label="Expand or collapse all">
-        <button id="expandAllBtn"  class="tool-btn" type="button">Expand all</button>
-        <button id="collapseAllBtn" class="tool-btn" type="button">Collapse all</button>
+  <main class="container" aria-label="Slide-like layout">
+    <section class="layout">
+      <div>
+        <h1 class="slide-title">For people who are undergoing treatment</h1>
+        <h2 class="slide-title">Here you will find questions to ask your doctors and eResources to learn some basic information.</h2>
+        <ul>
+          <li><strong>Step 1:</strong> Select one or more sections to see the questions.</li>
+          <li><strong>Step 2: Select 3-5 questions</strong> you want to include in your handout.</li>
+          <li><strong>Step 3: </strong> Download or print the handout to bring to your care team.</li>
+          <li><strong>Step 4:</strong> Select <strong>‘Online Resources'</strong> to find more information.</li>
+        </ul>
+
+        <div class="toolbar" role="group" aria-label="Expand or collapse all">
+          <button id="expandAllBtn" class="tool-btn" type="button">Expand all</button>
+          <button id="collapseAllBtn" class="tool-btn" type="button">Collapse all</button>
+        </div>
+
+        <div id="stack" class="stack" aria-label="Categories"></div>
       </div>
 
-           <div id="stack" class="stack" aria-label="Categories"></div>
-    
-    </div> <!-- close left column -->
+      <aside class="side" aria-label="Actions">
+        <!-- RELATIVE LINKS -->
+        <a class="cta" href="../home.html">Go back to the beginning</a>
+        <a class="cta" href="./treatmentinfo.html">Online Resources</a>
 
-     
+        <div class="pic-wrap">
+          <!-- image in SAME folder -->
+          <img class="pic" src="./Patient.jpg" alt="Patient speaking with a doctor" />
+        </div>
 
-    <aside class="side" aria-label="Actions">
-      <a class="cta" href="/home.html">Go back to the beginning</a>..
-      <a class="cta" href="./treatment/treatmentinfo.html">Online Resources</a>
+        <button id="downloadPdfBtn" class="tool-btn" type="button" disabled>Download PDF</button>
+        <button id="printBtn" class="tool-btn" type="button" disabled>Print</button>
 
-      <div class="pic-wrap">
-        <img class="pic"
-             src="./treatment/Patient.jpg"
-             alt="Patient speaking with a doctor" />
-      </div>
-      
-      <button id="downloadPdfBtn" class="tool-btn" type="button" disabled>Download PDF</button>
-      <button id="printBtn"       class="tool-btn" type="button" disabled>Print</button>
+        <p class="hint">Tip: Check any number of questions you’d like to include in the handout</p>
+      </aside>
+    </section>
+  </main>
 
-    
-      <p class="hint">Tip: Check any number of questions you’d like to include in the handout</p>
-    </aside>
-  </section>
-</main>
-
-<!-- hidden render stage for PDF/print/email -->
-<div id="printStage" class="print-stage" aria-hidden="true"></div>
+  <div id="printStage" class="print-stage" aria-hidden="true"></div>
 
 <script>
   // ------- Data -------
@@ -257,7 +245,6 @@
     beaker: () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8M10 3v6L5 21h14l-5-12V3" /><path d="M7 16h10" /></svg>`
   };
 
-  // Icon logic
   function iconFor(title){
     const t = title.toLowerCase();
     if (t.includes('support')) return Icons.hug();
@@ -268,7 +255,6 @@
     return Icons.bulb();
   }
 
-  // Render accordion + checkbox lists
   (function render(){
     const stack = document.getElementById('stack');
     DATA.forEach((cat, idx) => {
@@ -303,7 +289,6 @@
     document.getElementById('expandAllBtn').addEventListener('click', expandAll);
     document.getElementById('collapseAllBtn').addEventListener('click', collapseAll);
 
-    // Actions
     document.addEventListener('change', updateActionsEnabled);
     document.getElementById('downloadPdfBtn').addEventListener('click', downloadSelectedAsPDF);
     document.getElementById('printBtn').addEventListener('click', printSelected);
@@ -335,7 +320,6 @@
     singleOpen = true;
   }
 
-  // ----- Selection helpers -----
   function getSelectedQuestions(){
     return Array.from(document.querySelectorAll('.q-list input[type="checkbox"]:checked'))
       .map(cb => cb.nextElementSibling.textContent.trim());
@@ -351,11 +335,10 @@
     if (hint) hint.textContent = any ? `${count} question${count>1?'s':''} selected.` : 'No questions selected yet.';
   }
 
-  // ===== NEW: Group selections by category (keeps categories in handout) =====
   function getSelectedByCategory(){
-    const grouped = new Map(); // key: idx => { title, items:[] }
+    const grouped = new Map();
     document.querySelectorAll('.q-list input[type="checkbox"]:checked').forEach(cb => {
-      const parts = cb.id.split('-'); // q-<idx>-<i>
+      const parts = cb.id.split('-');
       const idx = parseInt(parts[1], 10);
       const title = DATA[idx]?.title || `Section ${idx+1}`;
       const text = cb.nextElementSibling.textContent.trim();
@@ -367,7 +350,6 @@
       .map(([,val])=>val);
   }
 
-  // ===== Handout (MATCHES CODE 1; grouped-by-category + instructions) =====
   function handoutHTML(selectedOrGrouped){
     const instructions = `
       <div class="panel">
@@ -381,7 +363,6 @@
 
     let questionsHTML = '';
     if (Array.isArray(selectedOrGrouped) && selectedOrGrouped.length && typeof selectedOrGrouped[0] === 'string') {
-      // flat array fallback
       questionsHTML = `<div class="panel"><ul>${selectedOrGrouped.map(q=>`<li>${q}</li>`).join('')}</ul></div>`;
     } else {
       const groups = Array.isArray(selectedOrGrouped) ? selectedOrGrouped : [];
@@ -409,20 +390,18 @@
     `;
   }
 
-  // Build hidden DOM for rendering/printing (uses grouped categories)
   function buildHandoutStage(){
     const grouped = getSelectedByCategory();
     const stage = document.getElementById('printStage');
     stage.innerHTML = handoutHTML(grouped);
-    return stage.firstElementChild; // .handout
+    return stage.firstElementChild;
   }
 
-  // ===== PDF (block-by-block pagination; IDENTICAL TO CODE 1) =====
   async function createHandoutPDF(){
     const any = getSelectedQuestions().length > 0;
     if(!any) return null;
 
-    const root = buildHandoutStage();           // .handout
+    const root = buildHandoutStage();
     const frame = root.querySelector('.frame');
 
     const pdf = new window.jspdf.jsPDF({ unit:'mm', format:'a4', compress:true });
@@ -457,7 +436,6 @@
         pdf.addImage(canvas.toDataURL('image/png'), 'PNG', margin, margin + cursorHmm, contentW, blockHmm);
         cursorHmm += blockHmm + 2;
       } else {
-        // Slice tall block across pages with slight overlap
         let y = 0;
         const pageContentHPx = contentH * pxPerMm;
         while (y < canvas.height) {
@@ -485,14 +463,12 @@
     return pdf;
   }
 
-  // ----- Download as PDF (uses block pagination) -----
   async function downloadSelectedAsPDF(){
     const pdf = await createHandoutPDF();
     if (!pdf) return;
     pdf.save('questions-handout.pdf');
   }
 
-  // ----- Print (grouped by category) -----
   function printSelected(){
     if(!getSelectedQuestions().length) return;
     const grouped = getSelectedByCategory();
@@ -507,7 +483,6 @@
     w.document.open(); w.document.write(html); w.document.close();
   }
 
-  // ----- Email (attach PDF if Web Share API is supported; otherwise fallback) -----
   async function emailSelectedPDF(){
     const pdf = await createHandoutPDF();
     if (!pdf) return;
@@ -520,7 +495,7 @@
         files:[file],
         title:'Questions Handout',
         text:'Please see attached questions handout.'
-      }).catch(()=>{ /* user cancelled share */ });
+      }).catch(()=>{});
       return;
     }
 
@@ -535,7 +510,6 @@
   }
 </script>
 
-<!-- Deps for client-side PDF -->
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" crossorigin="anonymous"></script>
 </body>
